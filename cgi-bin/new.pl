@@ -9,13 +9,21 @@ my $titulo = $q->param('titulo');
 my $texto = $q->param('texto');
 $texto =~ s/\n/<br>/g;
 
+my $isNuevo = $q->param('esNuevo');
+
 my $user = 'alumno';
 my $password = 'pweb1';
 my $dsn = "DBI:MariaDB:database=paginasDB;host=192.168.1.23";
 my $dbh = DBI->connect($dsn, $user, $password) or die("No se pudo conectar");
 
-my $sth = $dbh->prepare("INSERT INTO paginas(title, text)VALUES(?,?)");
-$sth->execute($titulo,$texto);
+my $sth;
+if($isNuevo eq "true"){
+  $sth = $dbh->prepare("INSERT INTO paginas(title, text)VALUES(?,?)");
+  $sth->execute($titulo,$texto);
+}else{
+  $sth = $dbh->prepare("UPDATE paginas SET text=? where title=?");
+  $sth->execute($texto,$titulo);
+}
 $sth->finish;
 $dbh->disconnect;
 

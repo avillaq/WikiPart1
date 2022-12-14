@@ -35,6 +35,9 @@ print<<HTML;
     <input type="hidden" name="titulo" value="$titulo">
     <label for="texto">Texto</label>
     <textarea name="texto" id="" cols="30" rows="10">$texto</textarea><br>
+    
+    <input type="hidden" name="esNuevo" value="false">
+    
     <input type="submit" value="Enviar">
     </form>
     <a href="./list.pl">Cancelar</a>
