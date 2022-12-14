@@ -5,16 +5,16 @@
 			<title>Wikipedia 0.1</title>
 	</head>
 	<body>
-		<form action="/cgi-bin/new.pl" method="get">
+		<form action="./cgi-bin/new.pl" method="get">
 			<label for="titulo">Titulo</label>
 			<input type="text" name="titulo"><br>
 			<label for="texto">Texto</label>
-			<input type="text" name="texto" style="width: 400px; height: 200px;"><br>
+			<textarea name="texto" cols="40" rows="10"></textarea><br>
 
 		  <input type="submit" value="Enviar">
     </form>
 
-		<a href="/cgi-bin/list.pl">Cancelar</a>
+		<a href="./cgi-bin/list.pl">Cancelar</a>
 
 	</body>
 </html>
