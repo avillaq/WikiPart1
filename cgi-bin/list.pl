@@ -3,12 +3,14 @@ use strict;
 use warnings;
 use CGI;
 
+my $q = CGI->new;
+
+print $q->header('text/html');
 print<<HTML;
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Wikipedia 0.1</title>
+     <title>Wikipedia 0.1</title>
 </head>
 <body>
     <h1>Nuestras paginas de wiki</h1>
