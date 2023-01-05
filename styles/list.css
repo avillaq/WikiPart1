@@ -1,0 +1,26 @@
+h1{
+    text-align: left;
+}
+hr {
+    height: 1px;
+    background-color: red;
+}
+.list{
+    display: flex;
+}
+
+.botons{
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+li{
+    list-style: none;
+}

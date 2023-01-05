@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!C:/xampp/perl/bin/perl.exe
 use strict;
 use warnings;
 use CGI;
@@ -6,10 +6,8 @@ use DBI;
 
 my $q = CGI->new;
 
-my $user = 'alumno';
-my $password = 'pweb1';
-my $dsn = "DBI:MariaDB:database=paginasDB;host=192.168.1.23";
-my $dbh = DBI->connect($dsn, $user, $password) or die("No se pudo conectar!");
+my $dsn = "DBI:mysql:database=datospagina;host=127.0.0.1";
+my $dbh = DBI->connect($dsn, "Alex", "") or die "No se pudo conectar";
 
 my @titulo;
 my $i = 0;
@@ -32,19 +30,25 @@ print<<HTML;
 <html>
 <head>
      <title>Wikipedia 0.1</title>
-     <script>
-     function enviarFor(){
-        document.formula.submit();
-     }
-     </script>
+		<link rel="stylesheet" href="../styles/general.css">
+  	<link rel="stylesheet" href="../styles/list.css">
 
 </head>
 <body>
-    <h1>Nuestras paginas de wiki</h1>
-    $funtion
-    <hr>
-    <a href="../new.html">Nueva Pagina</a><br>
-    <a href="../index.html">Volver al Inicio</a>
+    <div class="wrap">
+      <h1>Nuestras paginas de wiki</h1>
+      <div class="list">
+        $funtion
+      </div>
+      <hr>
+      <div class="botons">
+        <a href="../new.html">Nueva Pagina</a><br>
+        <a href="../index.html">Volver al Inicio</a>
+      </div>
+      
+    </div>
+  
+    
 </body>
 </html>
 HTML
@@ -53,9 +57,9 @@ sub listaTitulos(){
   my $lista="";
   foreach my $t(@_){
     $lista = $lista."<br><li>
-    <form action='./view.pl' name='formView'>
+    <form action='./view.pl' id='formView'>
     	<input type='hidden' name='title' value='$t'>
-    	<a href='javascript:document.formView.submit();'>$t</a>
+	<input type='submit' value='$t'>
     </form>
     <form action='./delete.pl'>
     	<input type='hidden' name='title' value='$t'>

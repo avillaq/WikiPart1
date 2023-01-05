@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!C:/xampp/perl/bin/perl.exe
 use strict;
 use warnings;
 use CGI;
@@ -7,14 +7,13 @@ use DBI;
 my $q = CGI->new;
 my $titulo = $q->param('titulo');
 my $texto = $q->param('texto');
-$texto =~ s/\n/<br>/g;
 
 my $isNuevo = $q->param('esNuevo');
 
-my $user = 'alumno';
-my $password = 'pweb1';
-my $dsn = "DBI:MariaDB:database=paginasDB;host=192.168.1.23";
-my $dbh = DBI->connect($dsn, $user, $password) or die("No se pudo conectar");
+##Conexion con la base de datos###################
+
+my $dsn = "DBI:mysql:database=datospagina;host=127.0.0.1";
+my $dbh = DBI->connect($dsn, "Alex", "") or die "No se pudo conectar";
 
 my $sth;
 if($isNuevo eq "true"){
@@ -27,6 +26,10 @@ if($isNuevo eq "true"){
 $sth->finish;
 $dbh->disconnect;
 
+##Fin de la conexion ####################
+
+my $newTexto = $texto;
+$newTexto =~ s/\n/<br>/g;
 print $q->header('text/html');
 print<<HTML;
 <!DOCTYPE html>
@@ -36,7 +39,7 @@ print<<HTML;
 </head>
 <body>
     <h1>$titulo</h1>
-    $texto
+    $newTexto
     <hr>
 
     <h2>Pagina grabada <a href="./list.pl">Listado de Paginas</a></h2>
