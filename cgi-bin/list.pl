@@ -37,10 +37,13 @@ print<<HTML;
 <body>
     <div class="wrap">
       <h1>Nuestras paginas de wiki</h1>
+
       <div class="list">
         <ul>$funtion</ul>
       </div>
+
       <hr>
+      
       <div class="NavigationButton">
         <a href="../new.html">Nueva Pagina</a><br>
         <a href="../index.html">Volver al Inicio</a>
