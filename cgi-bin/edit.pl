@@ -25,20 +25,24 @@ print<<HTML;
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="../styles/general.css">
+	<link rel="stylesheet" href="../styles/new.css">
      <title>Wikipedia 0.1</title>
 </head>
 <body>
-    <h1>$titulo</h1>
-    <form action="./new.pl" method="get">
-    <input type="hidden" name="titulo" value="$titulo">
-    <label for="texto">Texto</label>
-    <textarea name="texto" id="" cols="30" rows="10">$texto</textarea><br>
+    <div class="wrap">
+        <h1>$titulo</h1>
+        <form action="./new.pl" method="get">
+            <input type="hidden" name="titulo" value="$titulo">
+            <textarea class="inputTextArea" name="texto" rows="10">$texto</textarea>
     
-    <input type="hidden" name="esNuevo" value="false">
+            <input type="hidden" name="esNuevo" value="false">
     
-    <input type="submit" value="Enviar">
-    </form>
-    <a href="./list.pl">Cancelar</a>
+            <input class="inputSubmit" type="submit" value="Enviar">
+        </form>
+        <a href="./list.pl">Cancelar</a>
+    </div>
+    
 </body>
 </html>
 HTML

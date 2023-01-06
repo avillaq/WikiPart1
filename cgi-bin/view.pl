@@ -23,36 +23,35 @@ my $final = "";
 my $text = $texto;
 $text =~ s/\n/ /g;
 if($text =~ /######([a-zA-Z\t\h]+)/) {
-     $final .= "<h6>$1</h6>";
+     $final .= "<h6>$1</h6><br>";
 }
 elsif($text =~ /##([a-zA-Z\t\h]+)/) {
-     $final .= "<h2>$1</h2>";
+     $final .= "<h2>$1</h2><br>";
 }
 elsif($text =~ /#([a-zA-Z\t\h]+)/) {
-     $final .= "<h1>$1</h1>";
+     $final .= "<h1>$1</h1><br>";
 }
-
 if($text =~ /\*\*\*([a-zA-Z\t\h]+)\*\*\*/) {
-     print $1."\n";
+     $final .= "<p><strong><em>$1</em></strong></p><br>";     
 }
 elsif($text =~ /\*\*([a-zA-Z\t\h]+)\*\*/) {
-     print $1."\n";
+     $final .= "<p><strong>$1</strong></p><br>";     
 }
 elsif($text =~ /\*([a-zA-Z\t\h]+)\*/) {
-     print $1."\n";
+     $final .= "<p><em>$1</em></p><br>";     
 }
 
 if($text =~ /~~([a-zA-Z\t\h]+)~~/) {
-     print $1."\n";
+     $final .= "<p><del>$1</del></p><br>";     
 }
 if($text =~ /\*\*([a-zA-Z\t\h]+)_([a-zA-Z\t\h]+)_([a-zA-Z\t\h]+)\*\*/) {
-     print $1.$2.$3."\n";
+     $final .= "<p><strong>$1<em>$2</em>$3</strong></p><br>";     
 }
 if($text =~ /``` ([a-zA-Z\t\h]+)```/) {
-     print $1."\n";
+     $final .= "<p><code>$1</code></p><br>";     
 }
 if($text =~ /\[([a-zA-Z\t\h]+)\]\(([a-zA-Z\t\h\:\.\/]+)\)/) {
-     print $1.$2."\n";
+     $final .= "<p><a href='$2'>$1</a></p><br>";     
 }
 
 print $q->header('text/html');
@@ -60,11 +59,19 @@ print<<HTML;
 <!DOCTYPE html>
 <html>
 <head>
+     <link rel="stylesheet" href="../styles/general.css">
+     <link rel="stylesheet" href="../styles/grabada.css">
      <title>Wikipedia 0.1</title>
 </head>
 <body>
-    <a href="./list.pl">Retroceder</a><br>
-    $final
+     <div class="wrap">
+          <div class="TextoContent">
+                $final
+          </div>
+
+          <a href="./list.pl">Retroceder</a><br>
+     </div>
+    
 </body>
 </html>
 HTML
