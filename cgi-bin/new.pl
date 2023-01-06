@@ -35,14 +35,22 @@ print<<HTML;
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="../styles/general.css">
+		<link rel="stylesheet" href="../styles/grabada.css">
+
     <title>Wikipedia 0.1</title>
 </head>
 <body>
-    <h1>$titulo</h1>
-    $newTexto
-    <hr>
+  <div class="wrap">
+  <h1>Pagina grabada: </h1>
 
-    <h2>Pagina grabada <a href="./list.pl">Listado de Paginas</a></h2>
+  <div class="TextoContent">
+      <h2>$titulo</h2>
+      $newTexto
+  </div>
+    <a href="./list.pl">Listado de Paginas</a>
+  </div>
+   
 
 </body>
 </html>

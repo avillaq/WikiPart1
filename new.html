@@ -2,21 +2,26 @@
 <html>
 	<head>
 		 <meta charset="UTF-8">
-			<title>Wikipedia 0.1</title>
+		 <link rel="stylesheet" href="./styles/general.css">
+		 <link rel="stylesheet" href="./styles/new.css">
+
+		<title>Wikipedia 0.1</title>
 	</head>
 	<body>
-		<form action="./cgi-bin/new.pl" method="get">
-			<label for="titulo">Titulo</label>
-			<input type="text" name="titulo"><br>
-			<label for="texto">Texto</label>
-			<textarea name="texto" cols="40" rows="10"></textarea><br>
+		<div class="wrap">
+			<form action="./cgi-bin/new.pl" method="get">
+				<label>Titulo</label>
+				<input class="inputText" type="text" name="titulo">
 
-			<input type="hidden" name="esNuevo" value="true">
-		  
-			<input type="submit" value="Enviar">
-    </form>
-
-		<a href="./cgi-bin/list.pl">Cancelar</a>
+				<label>Texto</label>
+				<textarea class="inputTextArea" name="texto" rows="8"></textarea>
+				
+				<input type="hidden" name="esNuevo" value="true">
+				<input class="inputSubmit" type="submit" value="Enviar">
+			</form>
+			<a href="./cgi-bin/list.pl">Cancelar</a>
+		</div>
+		
 
 	</body>
 </html>

@@ -36,6 +36,7 @@ hr {
     width: 50%;
     margin-right: 50%;
     background-color: red;
+    margin-bottom: 8px;
 }
 /*Botones de navegacion*/
 .NavigationButton{
