@@ -1,26 +1,44 @@
-h1{
-    text-align: left;
-}
-hr {
-    height: 1px;
-    background-color: red;
-}
+
 .list{
+    width: 50%;
+}
+/**/
+.item{
     display: flex;
+    padding: 8px;
+    margin-bottom: 10px;
+    background: rgb(239, 223, 223);
+    font-size: large;
+    padding-left: 15px;
+
+}
+label{
+    width: 80%;
+}
+input[type="submit"]{
+    font-size: medium;
+    cursor: pointer;
+    border: 1px solid black;
+    margin-left: 5px;
+    border-radius: 5px;
 }
 
-.botons{
-    display: flex;
-}
-
-
-
-
-
-
-
-
-
-li{
+ul{
+    /*Como eliminar espacio en blanco de listas*/
+    /*https://es.stackoverflow.com/questions/389368/eliminar-peque%C3%B1o-espacio-a-la-izquierda-de-lista-no-ordenada-de-menu*/
+    padding-left: 0;
     list-style: none;
 }
+
+
+hr {
+    height: 1px;
+    width: 50%;
+    margin-right: 50%;
+    background-color: red;
+}
+/*Botones de navegacion*/
+.NavigationButton{
+    display: flex;
+}
+

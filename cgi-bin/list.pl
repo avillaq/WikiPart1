@@ -38,10 +38,10 @@ print<<HTML;
     <div class="wrap">
       <h1>Nuestras paginas de wiki</h1>
       <div class="list">
-        $funtion
+        <ul>$funtion</ul>
       </div>
       <hr>
-      <div class="botons">
+      <div class="NavigationButton">
         <a href="../new.html">Nueva Pagina</a><br>
         <a href="../index.html">Volver al Inicio</a>
       </div>
@@ -56,20 +56,30 @@ HTML
 sub listaTitulos(){
   my $lista="";
   foreach my $t(@_){
-    $lista = $lista."<br><li>
-    <form action='./view.pl' id='formView'>
+    $lista = $lista."<li>
+    <div class='item'>
+
+    <label>$t</label>
+
+    <form action='./view.pl'>
     	<input type='hidden' name='title' value='$t'>
-	<input type='submit' value='$t'>
+	    <input type='submit' value='Ver'>
     </form>
+
+    <form action='./edit.pl'>
+      <input type='hidden' name='title' value='$t'>
+	    <input type='submit' value='Editar'>
+    </form>
+    
     <form action='./delete.pl'>
     	<input type='hidden' name='title' value='$t'>
-	<input type='submit' value='X'>
+	    <input type='submit' value='X'>
     </form>
-    <form action='./edit.pl'>
-        <input type='hidden' name='title' value='$t'>
-	<input type='submit' value='E'>
-    </form>
+
+    
+    </div>
+    
     </li>";
   }
-  return "<ul>$lista</ul>";
+  return $lista;
 }

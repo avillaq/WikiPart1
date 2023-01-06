@@ -5,11 +5,10 @@ body {
 .wrap{
     width: 70%;
     margin: auto;
-    text-align: center;
 }
 a {
-    margin: 15px 0;
     padding: 8px;
+    margin-right: 20px;
     background: crimson;
 
     color: white;
