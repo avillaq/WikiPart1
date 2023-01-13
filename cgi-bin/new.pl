@@ -13,7 +13,7 @@ my $isNuevo = $q->param('esNuevo');
 ##Conexion con la base de datos###################
 
 my $dsn = "DBI:mysql:database=datospagina;host=127.0.0.1";
-my $dbh = DBI->connect($dsn, "Alex", "") or die "No se pudo conectar";
+my $dbh = DBI->connect($dsn, "root", "") or die "No se pudo conectar";
 
 my $sth;
 if($isNuevo eq "true"){
